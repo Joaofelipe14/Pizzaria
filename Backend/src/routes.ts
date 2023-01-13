@@ -1,11 +1,15 @@
-import {Router, Request, Response} from 'express';
+import {Router} from 'express';
+
+import { CreateUserController } from './controllers/user/CreateUserController'
+import { AuthUserController } from './controllers/user/AuthUserController'
+
 
 const router = Router();
 
-router.get('/teste',(red: Request, res: Response) =>{
-   // return res.json({ok: true})
-   throw new Error('aksjdçlasdasdas')
-})
+// - Rota usuarios
+router.post('/users',(new CreateUserController().handle))
+// - Login User
+router.post('/session',(new AuthUserController().handle))
 
 
 export { router };
