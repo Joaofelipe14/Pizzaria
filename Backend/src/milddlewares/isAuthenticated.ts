@@ -10,7 +10,7 @@ export function isAuthenticated (
     res: Response,
     next: NextFunction
 ){
-    console.log("Chamou esse middleware")
+  //  console.log("Chamou esse middleware")
 
     // Receber token
    // return next();
