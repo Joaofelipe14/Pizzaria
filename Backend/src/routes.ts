@@ -17,6 +17,11 @@ import {AdditemController} from './controllers/order/AdditemController'
 import {RemoverItenController} from './controllers/order/RemoverItenController'
 import {SendOrderController} from './controllers/order/SendOrderController'
 
+import { ListOrderController } from './controllers/order/ListOrderServiceController'
+import { DeatailOrderController } from './controllers/order/DetailOrderController'
+import { FinishOrderController } from './controllers/order/FinishOrderController'
+
+
 import {isAuthenticated} from './milddlewares/isAuthenticated'
 
 import uploadConfig from './config/multer';
@@ -48,6 +53,13 @@ router.post('/order/add',isAuthenticated, new AdditemController().handle)
 router.delete('/order/remove',isAuthenticated, new RemoverItenController().handle)
 
 router.put('/order/send',isAuthenticated, new SendOrderController().handle)
+
+router.get('/orders',isAuthenticated, new ListOrderController().handle )
+router.get('/orders/detail',isAuthenticated, new DeatailOrderController().handle )
+
+router.put('/order/finsh',isAuthenticated, new FinishOrderController().handle)
+
+
 
 
 export { router };
