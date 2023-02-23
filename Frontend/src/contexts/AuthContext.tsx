@@ -12,6 +12,7 @@ type AuthContextData = {
   isAuthenticated: boolean;
   signIn: (credentials: SignInProps) => Promise<void>;
   signOut: () => void;
+  singUp: (credentials: SingUpProps) => Promise<void>;
 }
 
 type UserProps = {
@@ -29,6 +30,11 @@ type AuthProviderProps = {
   children: ReactNode;
 }
 
+type SingUpProps ={
+  name: string,
+  email: string,
+  password: string
+}
 export const AuthContext = createContext({} as AuthContextData)
 
 
@@ -61,7 +67,6 @@ export function AuthProvider({ children }: AuthProviderProps){
       path: '/' 
      })
 
-
      setUser({
       id,
       name,
@@ -83,8 +88,30 @@ export function AuthProvider({ children }: AuthProviderProps){
     }
   }
 
+ async function singUp ({name, email, password}: SingUpProps){
+
+  console.log(name);
+  try{
+
+    const response = await api.post('/users',{
+      name,
+      email,
+      password
+    })
+
+    console.log("Cadastrado com sucesso!")
+
+    Router.push('/')
+
+  }catch(err){
+    console.log("erro ao cadastrar", err)
+  }
+
+
+ }
+  
   return(
-    <AuthContext.Provider value={{ user, isAuthenticated, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, signIn, signOut,singUp }}>
       {children}
     </AuthContext.Provider>
   )
