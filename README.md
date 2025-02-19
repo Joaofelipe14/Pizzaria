@@ -46,8 +46,15 @@ O frontend está embutido neste projeto, mas poderíamos também organizar o pro
 - frontend
 ```
 
+
+
 ### Rodar o projeto
 
 * ```npm run frontend-dev``` - Compila o TypeScript em modo desenvolvimento.
 * ```npm run frontend-watch``` - Compila o TypeScript em modo desenvolvimento usando modo watch.
 * ```npm run frontend-prod``` - Compila o TypeScript em modo produção.
+
+- **Tela inicial**:
+- ![Imagem 1](https://raw.githubusercontent.com/Joaofelipe14/Pizzaria/refs/heads/main/Frontend/src/images/1.png)
+- **Tela de cadastro**:
+- ![Imagem 2](https://raw.githubusercontent.com/Joaofelipe14/Pizzaria/refs/heads/main/Frontend/src/images/2.png)
